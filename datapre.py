@@ -70,8 +70,8 @@ Y = dataset.iloc[:, -1].values
 #Replace missing values with mean
 from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
-imputer = imputer.fit(X[:, 1:27])
-X[:, 1:27] = imputer.transform(X[:, 1:27])
+imputer = imputer.fit(X[:, 1:25])
+X[:, 1:25] = imputer.transform(X[:, 1:25])
 
 #Split the data between the Training Data and Test Data
 from sklearn.model_selection import train_test_split
@@ -84,11 +84,16 @@ X_train = mm_X.fit_transform(X_train)
 X_test = mm_X.transform(X_test)
 
 import csv
-csvfile = "\\tholospg.itserv.scss.tcd.ie\Pgrad\rameshsu\Desktop\Suprith\ML\MLGit\tempValues.xlsx"
+
 #RandomForest
+#numArr = [10,20,30]
+#numArr = [10,20,30,40,50,60,70,80,90,100]
+#numArr = [110,120,130,140,150,160,170,180,190,200]
 #numArr = [210,220,230,240,250,260,270,280,290,300]
-numArr = [410,420,430,440,450,460,470,480,490,500,510,520,530,540,550,560,570,580,590,600]
-#numArr = [200,210,220]
+#numArr = [310,320,330,340,350,360,370,380,390,400]
+#numArr = [410,420,430,440,450,460,470,480,490,500,510,520,530,540,550,560,570,580,590,600]
+numArr = [10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300]
+
 for x in numArr:
     from sklearn.ensemble import RandomForestRegressor
     regressor = RandomForestRegressor(n_estimators=x, random_state=0)  
@@ -98,29 +103,42 @@ for x in numArr:
     rms_rf = sqrt(mean_squared_error(Y_test, y_pred))
     rsqrd_rf = r2_score(Y_test, y_pred)
     mae_rf = mean_absolute_error(Y_test, y_pred)
-    res=["n="+str(x),str(rms_rf),str(rsqrd_rf),'0',str(mae_rf)]
+    res=["n="+str(x),str(rms_rf),str(rsqrd_rf),str(mae_rf)]
     
     #Assuming res is a flat list
     myFile = open("tempValues.xls", "a")  
     with myFile:  
         writer = csv.writer(myFile, lineterminator='\t')
-        #writer.writerows(res)    
         for val in res:
            writer.writerow([val])   
-        myFile.write("\n")
-        #for val in res:
-           # writer.writerow([val])    
+        myFile.write("\n")  
 
 #mape_rf = mean_absolute_percentage_error(Y_test, y_pred)
 #score_rf = metrics.accuracy_score(Y_test, y_pred)
 
-# GB ALGORITHM
-from sklearn.ensemble.gradient_boosting import GradientBoostingRegressor
-regressor1 = GradientBoostingRegressor(learning_rate=0.5,n_estimators=400, loss='ls')
-regressor1.fit(X_train, Y_train)    
-y_pred1 = regressor1.predict(X_test)
-rms1 = sqrt(mean_squared_error(Y_test, y_pred1))
-rsqrd1=r2_score(Y_test, y_pred1)
+# =============================================================================
+# # GB ALGORITHM
+# from sklearn.ensemble.gradient_boosting import GradientBoostingRegressor
+# 
+# numArr = [100,200,300,400]
+# for x in numArr:
+#     regressor_gb = GradientBoostingRegressor(learning_rate=0.3,n_estimators=x, loss='ls')
+#     regressor_gb.fit(X_train, Y_train)    
+#     y_pred_gb = regressor_gb.predict(X_test)
+#     rms_gb = sqrt(mean_squared_error(Y_test, y_pred_gb))
+#     rsqrd_gb=r2_score(Y_test, y_pred_gb)
+#     mae_gb = mean_absolute_error(Y_test, y_pred_gb)
+#     res=["n="+str(x),str(rms_gb),str(rsqrd_gb),'0',str(mae_gb)]
+#     
+#     myFile = open("tempValues.xls", "a")  
+#     with myFile:  
+#         writer = csv.writer(myFile, lineterminator='\t')
+#         for val in res:
+#            writer.writerow([val])     
+#          
+#         myFile.write("\n")
+# =============================================================================
+         
 
 # =============================================================================
 # #SVR Algorithm
