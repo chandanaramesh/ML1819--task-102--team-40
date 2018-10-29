@@ -1,1 +1,3 @@
 # Machine-Learning-Data-Pruning
+
+Abstract: This paper discusses models for predicting the electricity consumption of appliances in a house. The dataset used includes readings from temperature, weather and humidity sensors. We are using data pruning to provide statistical reliability and measure the resulting data to increase legibility. Four regression models namely, Random Forest, Gradient Boosting, Multiple Linear Regression and Support Vector Regression are used to train and evaluate testing data. The results show that the Random Forest regression model for light fixture attribute pruned from the dataset proves to be the best with 48.85% of the variance(R2).
