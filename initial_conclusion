@@ -1,0 +1,7 @@
+After implementing the selected pruning approach I have found out that RF seems to be the best model for the data as other models doesn't seem
+to improve rmse. Model training and testing has been done wih number of attribute combinations like sets of sttribute with no lights, removing
+all outdoor factors, removing appliances etc.
+
+Slight overfitting was observed while incerasing the learning factor in GBM
+
+Multiple linear regression and SVM are the worst performers.
