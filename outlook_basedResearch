@@ -1,0 +1,3 @@
+Limitations and Outlook
+If we will continue this task we would like to take use of Boruta package for better attribute filtering. 
+Also, we have discovered that RF has highest efficiency and would like to test its behaviour on seasonal data sets as well.
