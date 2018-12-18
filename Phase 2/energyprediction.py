@@ -62,3 +62,12 @@ y_pred_rf = regressor_rf.predict(X_test)
 rms_rf = sqrt(mean_squared_error(Y_test, y_pred_rf))
 rsqrd_rf=r2_score(Y_test, y_pred_rf)
 mae_rf = mean_absolute_error(Y_test,y_pred_rf)
+
+#GB Algorithm
+from sklearn.ensemble.gradient_boosting import GradientBoostingRegressor
+regressor_gb = GradientBoostingRegressor(learning_rate=0.5,n_estimators=400, loss='ls')
+regressor_gb.fit(X_train, Y_train)    
+y_pred_gb = regressor_gb.predict(X_test)
+rms_gb = sqrt(mean_squared_error(Y_test, y_pred_gb))
+rsqrd_gb=r2_score(Y_test, y_pred_gb)
+mae_gb=mean_absolute_error(Y_test, y_pred_gb)
