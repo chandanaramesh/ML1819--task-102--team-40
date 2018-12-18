@@ -44,3 +44,13 @@ ax.set_yticklabels(labels,fontsize=6)
 ax.set_xticklabels(labels)
 ax.set_yticklabels(labels)
 plt.show()
+
+#SVR Algorithm
+from sklearn.svm import SVR
+regressor_svm=SVR(kernel='rbf')
+regressor_svm.fit(X_train, Y_train)
+y_pred_svm = regressor_svm.predict(X_test)
+rms_svm = sqrt(mean_squared_error(Y_test, y_pred_svm))
+rsqrd_svm=r2_score(Y_test, y_pred_svm)
+mae_svm = mean_absolute_error(Y_test,y_pred_svm)
+
