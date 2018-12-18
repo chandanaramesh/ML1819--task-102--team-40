@@ -54,3 +54,11 @@ rms_svm = sqrt(mean_squared_error(Y_test, y_pred_svm))
 rsqrd_svm=r2_score(Y_test, y_pred_svm)
 mae_svm = mean_absolute_error(Y_test,y_pred_svm)
 
+#RF Algorithm
+from sklearn.ensemble import RandomForestRegressor
+regressor_rf = RandomForestRegressor(n_estimators=20, random_state=0)  
+regressor_rf.fit(X_train, Y_train)  
+y_pred_rf = regressor_rf.predict(X_test)
+rms_rf = sqrt(mean_squared_error(Y_test, y_pred_rf))
+rsqrd_rf=r2_score(Y_test, y_pred_rf)
+mae_rf = mean_absolute_error(Y_test,y_pred_rf)
